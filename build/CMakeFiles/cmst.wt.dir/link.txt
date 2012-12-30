@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/cmst.wt.dir/main.cpp.o  -o cmst.wt -rdynamic -lwt -lwthttp -lwtext -lboost_signals 

@@ -1,0 +1,40 @@
+[Buildset]
+BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00\x08\x00c\x00m\x00s\x00t)
+
+[CMake]
+Build Directory Count=1
+CMakeDir=/usr/share/cmake-2.8/Modules
+Current Build Directory Index=0
+ProjectRootRelative=./
+
+[CMake][CMake Build Directory 0]
+Build Directory Path=file:///home/nicki/projects/cmst/build
+Build Type=Debug
+CMake Binary=file:///usr/bin/cmake
+Install Directory=file:///usr/local
+
+[Launch]
+Launch Configurations=Launch Configuration 0
+
+[Launch][Launch Configuration 0]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=Execute
+Type=Native Application
+
+[Launch][Launch Configuration 0][Data]
+Arguments=\s--http-port 8000 --http-addr 0.0.0.0 --docroot . --deploy-path /cmst
+Debugger Shell=
+Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
+Dependency Action=Nothing
+Display Demangle Names=true
+Display Static Members=false
+EnvironmentGroup=default
+Executable=./cmst.wt
+GDB Path=
+Remote GDB Config Script=
+Remote GDB Run Script=
+Remote GDB Shell Script=
+Try Setting Breakpoints On Loading Libraries=true
+Working Directory=file:///home/nicki/projects/cmst/build
+isExecutable=true
