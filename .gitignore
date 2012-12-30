@@ -1,0 +1,8 @@
+#Backup files
+*~
+*.o
+build/*
+.gitignore
+.kdev4/
+cmst
+data.db
