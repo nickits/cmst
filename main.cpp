@@ -6,8 +6,6 @@
 #include <Wt/WLineEdit>
 #include <Wt/WPushButton>
 #include <Wt/WText>
-#include <Wt/Ext/Container>
-#include <Wt/Ext/Panel>
 #include <Wt/WFitLayout>
 #include <Wt/WBorderLayout>
 
@@ -41,8 +39,7 @@ Cmst::Cmst(const WEnvironment& env)
 {
   setTitle("Templates");                               // application title
 
-  //Wt::Ext::Container *rootContainer = new Wt::Ext::Container(root());
-   Wt::Ext::Panel *rootPanel = new Wt::Ext::Panel();
+  Wt::WContainerWidget *rootPanel = new Wt::WContainerWidget();
   Wt::WContainerWidget *w = new Wt::WContainerWidget(root());
   Wt::WBorderLayout *layout = new Wt::WBorderLayout();
   layout->addWidget(new Wt::WText("North-side is best"), Wt::WBorderLayout::North);
@@ -67,19 +64,19 @@ Cmst::Cmst(const WEnvironment& env)
   
 
   //rootPanel->setLayout(new WFitLayout());
-  rootPanel->layout()->addWidget(new WText("Your name, please ? "));  // show some text
+  rootPanel->addWidget(new WText("Your name, please ? "));  // show some text
   nameEdit_ = new WLineEdit();                     // allow text input
-  rootPanel->layout()->addWidget(nameEdit_);  // show some text
+  rootPanel->addWidget(nameEdit_);  // show some text
   nameEdit_->setFocus();                                 // give focus
 
   WPushButton *b = new WPushButton("Greet me."); // create a button
-  rootPanel->layout()->addWidget(b);  // show some text
+  rootPanel->addWidget(b);  // show some text
   //b->setMargin(5, Left);                                 // add 5 pixels margin
 
-  rootPanel->layout()->addWidget(new WBreak());                       // insert a line break
+  rootPanel->addWidget(new WBreak());                       // insert a line break
 
   greeting_ = new WText();                         // empty text
-  rootPanel->layout()->addWidget(greeting_);  // show some text*/
+  rootPanel->addWidget(greeting_);  // show some text*/
   
   /*
    * Connect signals with slots

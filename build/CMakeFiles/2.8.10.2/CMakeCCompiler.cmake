@@ -1,13 +1,13 @@
-set(CMAKE_C_COMPILER "/usr/bin/gcc")
+set(CMAKE_C_COMPILER "C:/Program Files (x86)/Microsoft Visual Studio 10.0/VC/bin/cl.exe")
 set(CMAKE_C_COMPILER_ARG1 "")
-set(CMAKE_C_COMPILER_ID "GNU")
-set(CMAKE_C_COMPILER_VERSION "4.7.2")
-set(CMAKE_C_PLATFORM_ID "Linux")
-
-set(CMAKE_AR "/usr/bin/ar")
-set(CMAKE_RANLIB "/usr/bin/ranlib")
-set(CMAKE_LINKER "/usr/bin/ld")
-set(CMAKE_COMPILER_IS_GNUCC 1)
+set(CMAKE_C_COMPILER_ID "MSVC")
+set(CMAKE_C_COMPILER_VERSION "16.0.30319.1")
+set(CMAKE_C_PLATFORM_ID "Windows")
+set(MSVC_C_ARCHITECTURE_ID X86)
+set(CMAKE_AR "")
+set(CMAKE_RANLIB "")
+set(CMAKE_LINKER "C:/Program Files (x86)/Microsoft Visual Studio 10.0/VC/bin/link.exe")
+set(CMAKE_COMPILER_IS_GNUCC )
 set(CMAKE_C_COMPILER_LOADED 1)
 set(CMAKE_C_COMPILER_WORKS TRUE)
 set(CMAKE_C_ABI_COMPILED TRUE)
@@ -30,7 +30,7 @@ set(CMAKE_C_LINKER_PREFERENCE 10)
 
 # Save compiler ABI information.
 set(CMAKE_C_SIZEOF_DATA_PTR "4")
-set(CMAKE_C_COMPILER_ABI "ELF")
+set(CMAKE_C_COMPILER_ABI "")
 set(CMAKE_C_LIBRARY_ARCHITECTURE "")
 
 if(CMAKE_C_SIZEOF_DATA_PTR)
@@ -48,8 +48,8 @@ endif()
 
 
 
-set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "c")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/usr/lib/gcc/i686-pc-linux-gnu/4.7.2;/usr/lib")
+set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "")
 
 
 

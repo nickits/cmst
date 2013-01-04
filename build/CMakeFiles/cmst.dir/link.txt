@@ -1,1 +1,0 @@
-/usr/bin/c++   -g   CMakeFiles/cmst.dir/main.cpp.o  -o cmst -rdynamic 

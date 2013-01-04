@@ -7,3 +7,10 @@ build/*
 .kdev4/
 cmst
 data.db
+*.opensdf
+*.sdf
+*.sln
+*.suo
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user

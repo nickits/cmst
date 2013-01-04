@@ -1,4 +1,22 @@
 /*
+ * Validators
+ */
+.Wt-invalid {
+    background-color: #f7dada;
+}
+
+.Wt-valid {
+    background-color: #daf7da
+}
+
+/*
+ * Effects
+ */
+.Wt-animated {
+    -webkit-backface-visibility: hidden; /* avoids flicker on Chrome */
+}
+
+/*
  * Outset
  */
 .Wt-outset {
@@ -16,8 +34,31 @@
  * Silk screen
  */
 .Wt-dialogcover {
-    background: #CCCCCC;
+    background: rgb(204, 204, 204); /* For IE, ... */
+    background: rgba(204, 204, 204, 0.5);
+    height: 100%; width: 100%;
+    top: 0px; left: 0px;
+    position: fixed;
 }
+
+/*
+ * WStackedWidget
+ */
+.Wt-stack.Wt-animated {
+    overflow: hidden;
+    position: relative;
+}
+
+/* This improves it on iPad and reduces artifacts on Safari.
+.Wt-animated > * {
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-backface-visibility: hidden;
+}
+
+.Wt-animated h3 {
+    -webkit-transform: translate3d(0,0,0);
+}
+*/
 
 /*
  * WCalendar
@@ -33,6 +74,10 @@
     text-align: center;
     font-size: 10pt;
     line-height: 140%;
+}
+
+.Wt-cal table td {
+    text-align: center;
 }
 
 .Wt-cal table.d1 {
@@ -144,6 +189,22 @@
     background-color: #EEEEEE;
 }
 
+.Wt-dialog .closeicon {
+    background: transparent url(closeicons-dialog.png) no-repeat scroll right top;
+    width: 13px;
+    height: 13px;
+    background-position: right 0px;
+    cursor: default;
+    vertical-align: center;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.Wt-dialog .closeicon:hover {
+    background-position: right -13px;
+}
+
 .Wt-dialog .titlebar {
     background: #888888; color: #FFFFFF;
     cursor: move;
@@ -151,15 +212,15 @@
 }
 
 .Wt-dialog .body {
-    background: #EEEEEE;
     padding: 4px 6px 4px;
 }
+
 
 /*
  * WMenuItem
  */
 .Wt-closeicon {
-    background: transparent url(../../closeicons-mi.png) no-repeat scroll right top;
+    background: transparent url(closeicons-mi.png) no-repeat scroll right top;
     height: 8px;
     width: 9px;
     margin: 0px 5px 0px 2px;
@@ -184,34 +245,45 @@
  * WGridLayout
  */
 
-.Wt-hrh div, .Wt-vsh {
+.Wt-hrh div, .Wt-vsh, .Wt-hrh2, .Wt-vsh2 {
     cursor: row-resize;
+}
+
+.Wt-hrh div, .Wt-vsh {
     margin: 2px;
 }
 
-.Wt-vrh div, .Wt-hsh {
+.Wt-vrh div, .Wt-hsh, .Wt-vrh2, .Wt-hsh2 {
     cursor: col-resize;
+}
+
+.Wt-vrh div, .Wt-hsh {
     margin: 0px 2px;
 }
 
-.Wt-hrh div {
+.Wt-hrh div, .Wt-hrh2 {
     background: url(splitter-v.png) no-repeat 50% 50%;
 }
 
-.Wt-vrh div {
+.Wt-vrh div, .Wt-vrh2 {
     background: url(splitter-h.png) no-repeat 50% 50%;
 }
 
-.Wt-hrh div, .Wt-vrh div {
+.Wt-hrh div, .Wt-vrh div, .Wt-vrh2 {
     background-color: #CCCCCC;
 }
 
-.Wt-hsh, .Wt-vsh {
+.Wt-hsh, .Wt-vsh, .Wt-hsh2, .Wt-vsh2 {
     background-color: #EEEEEE;
 }
 
-.Wt-hrh div:hover, .Wt-vrh div:hover {
+.Wt-hrh div:hover, .Wt-vrh div:hover,
+.Wt-vrh2:hover, .Wt-hrh2:hover {
     background-color: #EEEEEE;
+}
+
+.Wt-chwrap {
+    position: relative;
 }
 
 /*
@@ -228,6 +300,7 @@
   border: 3px solid #888888;
   background: #EEEEEE none repeat scroll 0%;
 }
+
 .Wt-panel .titlebar {
   padding: 0px 6px 3px;
   background: #888888; color: #FFFFFF;
@@ -237,6 +310,7 @@
 .Wt-panel .body {
   background: #FFFFFF;
   padding: 4px 6px 4px;
+  -webkit-backface-visibility: hidden; /* !flicker on Chrome */
 }
 
 /*
@@ -248,6 +322,11 @@
     border: 1px solid #666666;
     z-index: 200;
     cursor: default;
+}
+
+.Wt-popupmenu .content {
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .Wt-popupmenu .Wt-item, .Wt-popupmenu .Wt-selected {
@@ -306,6 +385,88 @@
    top:0.1em;
 }
 
+/*
+ * WResizable
+ */
+.Wt-resizable {
+    background-image: url(../../resizable.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: right bottom;
+}
+
+/*
+ * WSlider
+ */
+.Wt-slider-h {
+    background: url(sliderbg-h.png) repeat-x scroll left center;
+}
+
+.Wt-slider-h .Wt-slider-bg {
+    margin: 0px 5px;
+}
+
+.Wt-slider-v {
+    background: url(sliderbg-v.png) repeat-y scroll center top;
+}
+
+.Wt-slider-v .Wt-slider-bg {
+    margin: 5px 0px;
+}
+
+.Wt-slider-h .handle {
+    cursor: pointer; cursor: hand;
+    background: url(slider-thumb-h.gif) no-repeat scroll center bottom;
+}
+
+.Wt-slider-v .handle {
+    cursor: pointer; cursor: hand;
+    background: url(slider-thumb-v.gif) no-repeat scroll right center;
+}
+
+/*
+ * WSlider - disabled
+ */
+.Wt-slider-v.Wt-disabled .handle {
+    background: url(slider-thumb-v-disabled.gif) no-repeat scroll right center;
+}
+
+.Wt-slider-h.Wt-disabled {
+    background: url(sliderbg-h-disabled.png) repeat-x scroll left center;
+}
+
+.Wt-slider-v.Wt-disabled {
+    background: url(sliderbg-v-disabled.png) repeat-y scroll center top;
+}
+
+.Wt-slider-h.Wt-disabled .handle {
+    cursor: auto;
+    background: url(slider-thumb-h-disabled.gif) no-repeat scroll center bottom;
+}
+
+.Wt-slider-v.Wt-disabled .handle {
+    cursor: auto;
+    background: url(slider-thumb-v-disabled.gif) no-repeat scroll right center;
+}
+
+/*
+ * WSpinBox
+ */
+.Wt-spinbox {
+    background-image: url('spin-buttons.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 16px;
+}
+
+.Wt-spinbox-up {
+    background-image: url('spin-buttons-up.png');
+}
+
+.Wt-spinbox-dn {
+    background-image: url('spin-buttons-dn.png');
+}
+
 /* 
  * WSuggestionPopup
  */
@@ -334,34 +495,6 @@
     background-image: url('dropdown.png');
     background-repeat: no-repeat;
     background-position: right center;
-}
-
-/*
- * WSlider
- */
-.Wt-slider .handle-h {
-    background: url(slider-thumb-h.gif) no-repeat
-}
-
-.Wt-slider .handle-v {
-    background: url(slider-thumb-v.gif) no-repeat
-}
-
-/*
- * WSpinBox
- */
-.Wt-spinbox {
-    background-image: url('spin-buttons.png');
-    background-repeat: no-repeat;
-    background-position: right center;
-}
-
-.Wt-spinbox-up {
-    background-image: url('spin-buttons-up.png');
-}
-
-.Wt-spinbox-dn {
-    background-image: url('spin-buttons-dn.png');
 }
 
 /*
@@ -394,6 +527,10 @@
     font-size: small; font-weight: bold;
 }
 
+body.Wt-rtl .Wt-tabs span {
+    float:right;
+}
+
 .Wt-tabs span.itemselected, .Wt-tabs span.citemselected {
     background-position:100% -150px;
 }
@@ -410,7 +547,7 @@
 }
 
 .Wt-tabs .Wt-closeicon, .Wt-tabs span.citemselected .Wt-closeicon {
-    background: transparent url(../../closeicons-tab.png) no-repeat scroll right top;
+    background: transparent url(closeicons-tab.png) no-repeat scroll right top;
     margin: 6px 4px 0px 0px;
     height: 13px;
     width: 13px;
@@ -424,12 +561,26 @@
 }
 
 /*
+ * XHTML Tooltips
+ */
+.Wt-tooltip {
+    position: absolute;
+    max-width: 1000px;
+    background-color: #ffffcc;
+    border: 1px solid black;
+    padding: 1px 2px;
+    font-family: sans-serif;
+    font-size: smaller;
+    z-index: 1000;
+}
+
+/*
  * WTree(node)
  */
 
 .Wt-tree {
     table-layout: fixed;
-    font-family: verdana,helvetica,tahoma,sans-serif;
+    font-family: verdana, helvetica, tahoma, sans-serif;
     font-size: 9pt;
     cursor: default;
     white-space: nowrap;   
@@ -495,16 +646,150 @@
 }
 
 /*
- * WTableView
+ * WAbstractItemView (WTableView and WTreeView)
  */
-.Wt-tableview {
-    font-family: verdana,helvetica,tahoma,sans-serif;
-    font-size: 9pt;
+.Wt-itemview .Wt-headerdiv {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    width: 100%;
+}
+
+.Wt-itemview .Wt-tv-rh {
+    float: right;
+    width: 4px;
+    cursor: col-resize;
+}
+
+.Wt-itemview .Wt-disabled .Wt-tv-rh {
     cursor: default;
 }
 
-.Wt-tableview .Wt-spacer {
+body.Wt-rtl .Wt-itemview .Wt-tv-rh {
+    float: left;
+}
+
+.Wt-itemview div.Wt-tv-no-rh {
+    width: 0px;
+    margin-left: 4px;
+    cursor: default;
+}
+
+/* sort handles */
+.Wt-itemview .Wt-tv-sh {
+    float: right;
+    width: 16px;
+    height: 16px;
+    padding-bottom: 6px;
+    cursor: pointer;
+    cursor:hand;
+}
+
+.Wt-itemview .Wt-disabled .Wt-tv-sh {
+    background: url(sort-arrow-disabled.gif) no-repeat 0 6px;
+    cursor: default;
+}
+
+body.Wt-rtl .Wt-itemview .Wt-tv-sh {
+    float: left;
+}
+
+.Wt-itemview {
+    font-family: verdana,helvetica,tahoma,sans-serif;
+    font-size: 9pt;
+    cursor: default;
+    white-space: nowrap;
+}
+
+.Wt-itemview .Wt-spacer {
     background: url(../../loading.png);
+}
+
+.Wt-itemview .Wt-headerdiv,
+.Wt-itemview .Wt-headerdiv .Wt-tv-rowc,
+.Wt-itemview th {
+    background-color: #EEEEEE;
+}
+
+.Wt-itemview th, .Wt-itemview th .Wt-tv-br {
+    overflow: hidden;
+}
+
+.Wt-itemview .Wt-header .Wt-label {
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden; /* needed for IE only */
+    white-space: nowrap;
+}
+
+.Wt-itemview .Wt-header .Wt-disabled .Wt-label {
+    color: gray;
+}
+
+.Wt-itemview .Wt-header .Wt-wwrap .Wt-label {
+    overflow: visible;
+    white-space: normal;
+}
+
+.Wt-itemview .Wt-tv-rh:hover {
+    background-color: #DDDDDD;
+}
+
+.Wt-itemview .Wt-disabled .Wt-tv-rh:hover {
+    background-color: transparent;
+}
+
+.Wt-itemview .Wt-tv-sh-none {
+    background: url(sort-arrow-none.gif) no-repeat 0 6px;
+}
+
+.Wt-itemview .Wt-tv-sh-up {
+    background: url(sort-arrow-up.gif) no-repeat 0 6px;
+}
+
+.Wt-itemview .Wt-tv-sh-down {
+    background: url(sort-arrow-down.gif) no-repeat 0 6px;
+}
+
+/* selection */
+.Wt-itemview .Wt-selected {
+    background-color: #FFFFAA;
+}
+
+/* item drag & drop */
+.Wt-itemview .Wt-drop-site {
+    background-color: #EEEEEE;
+    outline: 1px dotted black;
+}
+
+/*
+ * WTableView
+ */
+body.Wt-ltr .Wt-tableview .Wt-header .Wt-tv-c {
+    padding-left: 6px;
+}
+
+body.Wt-rtl .Wt-tableview .Wt-header .Wt-tv-c {
+    padding-right: 6px;
+}
+
+.Wt-tableview .Wt-tv-contents .Wt-tv-c,
+.Wt-plaintable .Wt-tv-c {
+    padding: 0px 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Wt-tableview .Wt-tv-contents img.icon,
+.Wt-tableview .Wt-plaintable img.icon,
+.Wt-tableview .Wt-tv-contents input.icon,
+.Wt-tableview .Wt-plaintable input.icon {
+    margin: 0px 3px 2px 0px;
+    vertical-align: middle;
+}
+
+.Wt-tableview .Wt-spacer {
     position: relative;
     overflow: hidden;
 }
@@ -515,12 +800,6 @@
     white-space: nowrap
 }
 
-.Wt-tableview .Wt-headertable,
-.Wt-tableview .Wt-headertable .Wt-rowc,
-.Wt-tableview th {
-    background-color: #EEEEEE;
-}
-
 .Wt-tableview th {
     padding: 0px;
 }
@@ -529,94 +808,124 @@
     background-position: left bottom;
 }
 
-.Wt-tableview .Wt-header .Wt-label {
-    font-weight: bold;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.Wt-tableview .Wt-tv-rh:hover {
-    background-color: #DDDDDD;
-}
-
-.Wt-tableview .Wt-tv-sh-none {
-    background: url(sort-arrow-none.gif) no-repeat 0 6px;
-}
-
-.Wt-tableview .Wt-tv-sh-up {
-    background: url(sort-arrow-up.gif) no-repeat 0 6px;
-}
-
-.Wt-tableview .Wt-tv-sh-down {
-    background: url(sort-arrow-down.gif) no-repeat 0 6px;
-}
-
-/* selection */
-.Wt-tableview .Wt-selected {
-    background-color: #FFFFAA;
-}
-
-/* item drag & drop */
-.Wt-tableview .Wt-drop-site {
-    background-color: #EEEEEE;
-    outline: 1px dotted black;
-}
-
 .Wt-tableview .Wt-tv-contents {
     position: absolute;
 }
 
 /* borders */
-.Wt-tableview .Wt-tv-br,
-.Wt-tableview .Wt-tv-contents .Wt-tv-c,
-.Wt-tableview .Wt-plaintable tbody .Wt-tv-c {
+body.Wt-ltr .Wt-tableview .Wt-tv-br,
+body.Wt-ltr .Wt-tableview .Wt-tv-contents .Wt-tv-c,
+body.Wt-ltr .Wt-tableview .Wt-plaintable tbody .Wt-tv-c {
     border-right: 1px solid #FFFFFF;
+}
+
+body.Wt-rtl .Wt-tableview .Wt-tv-br,
+body.Wt-rtl .Wt-tableview .Wt-tv-contents .Wt-tv-c,
+body.Wt-rtl .Wt-tableview .Wt-plaintable tbody .Wt-tv-c {
+    border-left: 1px solid #FFFFFF;
 }
 
 /*
  * WTreeView
  */
-.Wt-treeview {
-    font-family: verdana,helvetica,tahoma,sans-serif;
-    font-size: 9pt;
-    cursor: default;
-    white-space: nowrap;
+
+/* Layout styling */
+.Wt-treeview table {
+    width: 100%;
 }
 
-.Wt-treeview .Wt-spacer {
-    background: url(../../loading.png);
+.Wt-treeview .c1 {
+    width: 100%;
+    overflow: hidden;
 }
 
-/* header */
-.Wt-treeview .Wt-headerdiv, .Wt-treeview .Wt-headerdiv .Wt-tv-rowc {
-    background-color: #EEEEEE;
+.Wt-treeview .c0 {
+    width: 19px;
+    vertical-align: middle;
 }
 
-.Wt-treeview .Wt-headerdiv .background {
-    background-color: #FFFFFF;
+.Wt-treeview .Wt-tv-row {
+    float: right;
+    overflow: hidden;
 }
 
-.Wt-treeview .Wt-header div.Wt-label {
-    white-space: normal;
-    font-weight: bold;
+body.Wt-rtl .Wt-treeview .Wt-tv-row {
+    float: left;
+}
+
+.Wt-treeview .Wt-tv-row .Wt-tv-c {
+    display: block; float: left;
+    padding: 0px 3px;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
-.Wt-treeview .Wt-tv-rh:hover {
-    background-color: #DDDDDD;
+body.Wt-rtl .Wt-treeview .Wt-tv-row .Wt-tv-c {
+    float: right;
 }
 
-.Wt-treeview .Wt-tv-sh-none {
-    background: url(sort-arrow-none.gif) no-repeat 0 6px;
+.Wt-treeview .Wt-tv-c {
+    padding: 0px 3px;
 }
 
-.Wt-treeview .Wt-tv-sh-up {
-    background: url(sort-arrow-up.gif) no-repeat 0 6px;
+.Wt-treeview img.icon, .Wt-treeview input.icon {
+    vertical-align: middle;
 }
 
-.Wt-treeview .Wt-tv-sh-down {
-    background: url(sort-arrow-down.gif) no-repeat 0 6px;
+body.Wt-ltr .Wt-treeview img.icon,
+body.Wt-ltr .Wt-treeview input.icon {
+    margin: 0px 3px 2px 0px;
+}
+
+body.Wt-rtl .Wt-treeview img.icon,
+body.Wt-rtl .Wt-treeview input.icon {
+    margin: 0px 0px 2px 3px;
+}
+
+.Wt-treeview .Wt-tv-node {
+    table-layout: fixed;
+}
+
+.Wt-treeview .Wt-tv-node img.w0 {
+    width: 0px;
+    margin: 0px;
+}
+
+.Wt-treeview .Wt-tv-node .c0 img,
+.Wt-treeview .Wt-tv-node .c0 input {
+    margin-right: 0px;
+    margin: -4px 0px;
+}
+
+body.Wt-ltr .Wt-treeview .Wt-header .Wt-tv-c {
+    padding: 0px;
+    margin-left: 7px;
+}
+
+body.Wt-rtl .Wt-treeview .Wt-header .Wt-tv-c {
+    padding: 0px;
+    margin-right: 7px;
+}
+ 
+body.Wt-ltr .Wt-treeview .Wt-tv-br,                        /* header */
+body.Wt-ltr .Wt-treeview .Wt-tv-node .Wt-tv-row .Wt-tv-c { /* data */
+    margin-right: 0px;
+    border-right: 1px solid white;
+}
+
+body.Wt-rtl .Wt-treeview .Wt-tv-br,                        /* header */
+body.Wt-rtl .Wt-treeview .Wt-tv-node .Wt-tv-row .Wt-tv-c { /* data */
+    margin-left: 0px;
+    border-left: 1px solid white;
+}
+
+.Wt-treeview .Wt-scroll {
+    overflow: auto;
+    height: 22px;
+}
+
+.Wt-treeview .Wt-scroll div {
+    height: 1px;
 }
 
 /* nodes */
@@ -628,10 +937,18 @@
     background: url(../../tv-line-last.gif) no-repeat 0 center;
 }
 
+body.Wt-rtl .Wt-treeview .Wt-end {
+    background: url(../../tv-line-last-rtl.gif) no-repeat 0 center;
+}
+
 .Wt-treeview .Wt-expand {
     width: 19px;
     height: 18px;
     background: url(nav-plus.gif) no-repeat 0 center;
+}
+
+body.Wt-rtl .Wt-treeview .Wt-expand {
+    background: url(nav-plus-rtl.gif) no-repeat 0 center;
 }
 
 .Wt-treeview .Wt-collapse {
@@ -640,21 +957,22 @@
     background: url(nav-minus.gif) no-repeat 0 center;
 }
 
+body.Wt-rtl .Wt-treeview .Wt-collapse {
+    background: url(nav-minus-rtl.gif) no-repeat 0 center;
+}
+
 .Wt-treeview .Wt-noexpand {
     width: 19px;
     height: 18px;
     background: url(../../line-middle.gif) no-repeat 0 center;
 }
 
-/* selection */
-.Wt-treeview .Wt-selected {
-    background-color: #FFFFAA;
+body.Wt-rtl .Wt-treeview .Wt-noexpand {
+    background: url(../../line-middle-rtl.gif) no-repeat 0 center;
 }
 
-/* item drag & drop */
-.Wt-treeview .Wt-drop-site {
-    background-color: #EEEEEE;
-    outline: 1px dotted black;
+.Wt-treeview .Wt-tv-row .Wt-tv-c {
+    white-space: nowrap;
 }
 
 /*
