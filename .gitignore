@@ -2,8 +2,7 @@
 *~
 *.o
 *.kdev4
-build/*
-.gitignore
+build/
 .kdev4/
 cmst
 data.db

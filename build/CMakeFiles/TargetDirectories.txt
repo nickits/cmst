@@ -1,3 +1,0 @@
-D:/Razni/wtpro/cmst/build/CMakeFiles/ALL_BUILD.dir
-D:/Razni/wtpro/cmst/build/CMakeFiles/ZERO_CHECK.dir
-D:/Razni/wtpro/cmst/build/CMakeFiles/cmst.wt.dir
