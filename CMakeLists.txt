@@ -4,7 +4,7 @@ project(cmst)
 
 set(wt_project_target cmst.wt)
 
-set(wt_project_source
+set(wt_project_source pages/commonpage.cpp pages/mainpage.cpp
 main.cpp
 )
 
@@ -24,3 +24,5 @@ add_executable(${wt_project_target} ${wt_project_source})
 target_link_libraries(${wt_project_target} ${wt_project_libraries}) 
 
 include_directories(${wt_includes})
+
+add_subdirectory(pages)

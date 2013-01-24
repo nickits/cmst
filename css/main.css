@@ -1,0 +1,53 @@
+ul.menu {
+    margin: 0px;
+    padding: 0px;
+    text-indent:5px;
+    list-style:none;
+    width:200px;
+    overflow: visible;
+}
+
+ul.menu li {
+    padding-top: 8px;
+}
+
+ul.menu a {
+    letter-spacing:1px;
+    text-decoration:none;
+    padding-bottom:5px;
+    width:200px;
+}
+
+ul.menu .itemselected, ul.menu .itemselected a, ul.menu .itemselected a {
+    color: black;
+}
+
+ul.menu .item, ul.menu a.item, ul.menu .item a {
+    color: #7E7E7E;
+}
+
+ul.menu a:hover, ul.menu .item a:hover {
+    color: #70BD1A;
+    text-decoration: none;
+}
+
+ul.submenu {
+    font-size: 90%;
+    margin-left: 15px;
+    padding-bottom: 0px;
+    width: auto;
+    border-right: 0px;
+    display: none;
+}
+
+.itemselected ul.submenu {
+    display: block;
+}
+
+ul.submenu li {
+    padding-top: 4px;
+}
+
+ul.submenu li a {
+    padding-bottom: 0px;
+}
