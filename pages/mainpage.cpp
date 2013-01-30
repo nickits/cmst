@@ -7,7 +7,8 @@
 
 #include "mainpage.h"
 #include <Wt/WBorderLayout>
-#include <WText>
+#include <Wt/WText>
+#include <Wt/WSubMenuItem>
 
 MainPage::MainPage(Wt::WApplication* app): WContainerWidget()
 {
@@ -24,7 +25,8 @@ MainPage::MainPage(Wt::WApplication* app): WContainerWidget()
 	menu->setStyleClass("menu");
 	menu->setInternalPathEnabled();
 	menu->setInternalBasePath("/");
-  
+	menu->itemSelected().connect(this, &MainPage::selectedMenuItem);
+	
 	Wt::WContainerWidget *w = new Wt::WContainerWidget(this);
 	Wt::WBorderLayout *layout = new Wt::WBorderLayout();
 	layout->addWidget(new Wt::WText("North-side is best"), Wt::WBorderLayout::North);
@@ -35,28 +37,28 @@ MainPage::MainPage(Wt::WApplication* app): WContainerWidget()
 	// use layout but do not justify vertically
 	w->setLayout(layout, Wt::AlignTop | Wt::AlignJustify);
 	
-	addToMenu(menu, "Basics", new CommonPage());
-	addToMenu(menu, "Form Widgets", new CommonPage());
-	addToMenu(menu, "Form Validators", new CommonPage());
+	menu->addItem("Basics", new CommonPage());
+	menu->addItem("Form Widgets", new CommonPage());
+	menu->addItem("Form Validators", new CommonPage());
 
+	Wt::WSubMenuItem *smi = new Wt::WSubMenuItem("Sub menu", new CommonPage());
+	Wt::WMenu *subMenu = new Wt::WMenu(contentsStack_, Wt::Vertical, 0);
+	subMenu->setRenderAsList(true);
+
+	smi->setSubMenu(subMenu);
+	
+	menu->addItem(smi);
+
+	subMenu->setInternalPathEnabled();
+	subMenu->setInternalBasePath("/" + smi->pathComponent());
+	subMenu->setStyleClass("menu submenu");
+	subMenu->itemSelected().connect(this, &MainPage::selectedMenuItem);
+	
+	subMenu->addItem("Sub Item 1", new CommonPage());
+	subMenu->addItem("Sub Item 2", new CommonPage());
 }
 
-void MainPage::addToMenu(Wt::WMenu* menu, const Wt::WString& name, CommonPage* controls)
+void MainPage::selectedMenuItem(Wt::WMenuItem* menuItem)
 {
-// 	if (controls->hasSubMenu()) {
-// 		WSubMenuItem *smi = new WSubMenuItem(name, controls);
-// 		WMenu *subMenu = new WMenu(contentsStack_, Vertical, 0);
-// 		subMenu->setRenderAsList(true);
-// 
-// 		smi->setSubMenu(subMenu);
-// 		menu->addItem(smi);
-// 
-// 		subMenu->setInternalPathEnabled();
-// 		subMenu->setInternalBasePath("/" + smi->pathComponent());
-// 		subMenu->setStyleClass("menu submenu");
-// 
-// 		controls->populateSubMenu(subMenu);
-// 	} else
-		menu->addItem(name, controls);
-//		app_->setTitle(name);
+	app_->setTitle(menuItem->text());
 }

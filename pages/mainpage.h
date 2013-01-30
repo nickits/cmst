@@ -25,6 +25,8 @@ private:
 	
 	void addToMenu(Wt::WMenu *menu, const Wt::WString& name,
 		 CommonPage *controls);
+	
+	void selectedMenuItem(Wt::WMenuItem* menuItem);
 };
 
 #endif // MAINPAGE_H
