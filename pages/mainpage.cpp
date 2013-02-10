@@ -6,6 +6,7 @@
 
 
 #include "mainpage.h"
+#include "clientspage.h"
 #include <Wt/WBorderLayout>
 #include <Wt/WText>
 #include <Wt/WSubMenuItem>
@@ -37,11 +38,11 @@ MainPage::MainPage(Wt::WApplication* app): WContainerWidget()
 	// use layout but do not justify vertically
 	w->setLayout(layout, Wt::AlignTop | Wt::AlignJustify);
 	
-	menu->addItem("Basics", new CommonPage());
-	menu->addItem("Form Widgets", new CommonPage());
-	menu->addItem("Form Validators", new CommonPage());
+	menu->addItem("Basics", new ClientsPage(this, &session_));
+	menu->addItem("Form Widgets", new CommonPage(this, &session_));
+	menu->addItem("Form Validators", new CommonPage(this, &session_));
 
-	Wt::WSubMenuItem *smi = new Wt::WSubMenuItem("Sub menu", new CommonPage());
+	Wt::WSubMenuItem *smi = new Wt::WSubMenuItem("Sub menu", new CommonPage(this, &session_));
 	Wt::WMenu *subMenu = new Wt::WMenu(contentsStack_, Wt::Vertical, 0);
 	subMenu->setRenderAsList(true);
 
@@ -54,8 +55,8 @@ MainPage::MainPage(Wt::WApplication* app): WContainerWidget()
 	subMenu->setStyleClass("menu submenu");
 	subMenu->itemSelected().connect(this, &MainPage::selectedMenuItem);
 	
-	subMenu->addItem("Sub Item 1", new CommonPage());
-	subMenu->addItem("Sub Item 2", new CommonPage());
+	subMenu->addItem("Sub Item 1", new CommonPage(this, &session_));
+	subMenu->addItem("Sub Item 2", new CommonPage(this, &session_));
 }
 
 void MainPage::selectedMenuItem(Wt::WMenuItem* menuItem)

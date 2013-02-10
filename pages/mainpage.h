@@ -22,6 +22,7 @@ public:
 private:
 	Wt::WStackedWidget *contentsStack_;
 	Wt::WApplication* app_;
+	DataSession session_;
 	
 	void addToMenu(Wt::WMenu *menu, const Wt::WString& name,
 		 CommonPage *controls);
