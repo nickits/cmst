@@ -8,7 +8,7 @@
 #define COMMONPAGE_H
 
 #include <Wt/WContainerWidget>
-#include <WMenu>
+#include <Wt/WMenu>
 #include "../datasession.h"
 
 

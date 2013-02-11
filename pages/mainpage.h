@@ -8,9 +8,9 @@
 #ifndef MAINPAGE_H
 #define MAINPAGE_H
 
-#include <WContainerWidget>
-#include <WStackedWidget>
-#include <WApplication>
+#include <Wt/WContainerWidget>
+#include <Wt/WStackedWidget>
+#include <Wt/WApplication>
 #include "commonpage.h"
 
 

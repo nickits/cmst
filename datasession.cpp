@@ -43,7 +43,7 @@ void DataSession::initialize()
       
 	  std::stringstream st;
 	  
-	  for(int i = 1; i <= 10; i++){
+	  for(int i = 1; i <= 1000; i++){
 		Collection* collection = new Collection();
 	    st << "Collection" << i;
 		collection->name = st.str();
